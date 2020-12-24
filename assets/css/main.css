@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.header__form-title{
+    margin-right: 1rem;
+}
+.header__form-input, .sentence-input{
+    border: none;
+    border-bottom: 1.5px solid #cecece ;
+}
+.header__form-input:hover, .sentence-input:hover{
+    outline: none;
+}
