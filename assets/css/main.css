@@ -13,10 +13,21 @@ a{
 .header__form-title{
     margin-right: 1rem;
 }
-.header__form-input, .sentence-input{
+.header__form-input, .sentence__input{
     border: none;
     border-bottom: 1.5px solid #cecece ;
 }
-.header__form-input:hover, .sentence-input:hover{
+.header__form-input:hover, .header__form-input:focus ,.sentence__input:hover, .sentence__input:focus{
     outline: none;
+}
+
+.content .row .sentence{
+    display: flex;
+    margin-top: 5px;
+}
+.sentence__title{
+    text-align: right;
+}
+.sentence__input{
+    margin-left: 1.5rem;
 }

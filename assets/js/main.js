@@ -30,16 +30,16 @@ userForm.addEventListener("submit", (e) => {
 
 
 function setNumberInCol(sentences) {
-    document.querySelector(".row__inner").innerHTML = ""
+    document.querySelector(".row-content").innerHTML = ""
     let html = ``
     if (sentences <= 30) {
         for (let i = 1; i <= sentences; i++) {
             html += `
             <span class="sentence">
                <div class="sentence__title">
-                    Câu số ${i} : 
+                    Câu số ${i < 10 ? `0${i}` : i} : 
                </div>
-               <input type="text" class="sentence-input" />
+               <input type="text" class="sentence__input" />
             </span>
             `
         }
@@ -50,13 +50,13 @@ function setNumberInCol(sentences) {
         for (let i = 1; i <= loopTimes; i++) {
             console.log(`time ${i}: `, limit)
             console.log(`index: ${index}`)
-            html += `<div class="col-lg-${12 / loopTimes}>`;
+            html += `<div class="col-lg-${12 / loopTimes}">`;
             for (let j = 1; j <= limit; j++) {
                 html +=
-                `
+                    `
                 <span class="sentence">
                    <div class="sentence__title">
-                        Câu số ${j+index} : 
+                        Câu số ${index == 0 & j < 10 ? `0${j + index}` : `${j + index}`} 
                    </div>
                    <input type="text" class="sentence__input" />
                 </span>
@@ -78,7 +78,7 @@ function setNumberInCol(sentences) {
 
 
     console.log("html: ", html)
-    document.querySelector(".row__inner").innerHTML = html;
+    document.querySelector(".row-content").innerHTML = html;
 
 }
 
