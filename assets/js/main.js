@@ -56,7 +56,7 @@ function setNumberInCol(sentences) {
                     `
                 <span class="sentence">
                    <div class="sentence__title">
-                        Câu số ${index == 0 & j < 10 ? `0${j + index}` : `${j + index}`} 
+                        Câu số ${index == 0 & j < 10 ? `0${j + index}` : `${j + index}`} :
                    </div>
                    <input type="text" class="sentence__input" />
                 </span>
@@ -77,18 +77,8 @@ function setNumberInCol(sentences) {
     }
 
 
-    console.log("html: ", html)
+    // console.log("html: ", html)
     document.querySelector(".row-content").innerHTML = html;
 
 }
 
-
-/* Khi user nhap so luong cau thi bat dau function set cac cot
-  Lam tron so cau / 3 roi tao so luong element tuong ung
-  Hoac moi col set so luong toi da la 30 cau
-  element ~ <div>
-     <span>Cau so ${index}</span>
-     <input/>
-  </div>
-
-*/
