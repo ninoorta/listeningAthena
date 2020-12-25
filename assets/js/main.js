@@ -1,17 +1,4 @@
 
-
-// get value input
-
-// userEnter.addEventListener("keyup", function(event) {
-//     // Number 13 is the "Enter" key on the keyboard
-//     if (event.keyCode === 13) {
-//       // Cancel the default action, if needed
-//       event.preventDefault();
-//       // Trigger the button element with a click
-//     //   userEnter.click()
-//     }
-// });
-
 let userForm = document.querySelector(".header__form")
 userForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -26,6 +13,47 @@ userForm.addEventListener("submit", (e) => {
     }
 })
 
+let clearBtn = document.querySelector(".header__clear");
+clearBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    //  get all data sentences
+    let sentences = document.getElementsByClassName("sentence__input");
+    // console.log(sentences)
+    for(let i = 0; i < sentences.length; i++){
+        sentences[i].value = "";
+    }
+})
+
+let saveBtn = document.querySelector(".header__save");
+saveBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    // get all data sentences
+    let sentences = document.getElementsByClassName("sentence__input");
+    let data = [];
+    for(let i = 0 ; i < sentences.length; i++){
+        let sentence = {
+            "number": i+1,
+            "value": sentences[i].value
+        }
+        data.push(sentence);
+    }
+    // console.log("data: ", data)
+    localStorage.clear();
+    localStorage.setItem("sentences", JSON.stringify(data));
+})
+
+let restoreBtn = document.querySelector(".header__restore")
+restoreBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    let data = JSON.parse(localStorage.getItem("sentences"));
+    // get all sentences
+    let sentenceInput = document.getElementsByClassName("sentence__input")
+    for(let i = 0; i < sentenceInput.length; i++){
+        if(data[i].number == i+1){
+            sentenceInput[i].value = data[i].value
+        }
+    }
+})
 
 
 
@@ -50,7 +78,7 @@ function setNumberInCol(sentences) {
         for (let i = 1; i <= loopTimes; i++) {
             console.log(`time ${i}: `, limit)
             console.log(`index: ${index}`)
-            html += `<div class="col-lg-${12 / loopTimes}">`;
+            html += `<div class="col-${12 / loopTimes}">`;
             for (let j = 1; j <= limit; j++) {
                 html +=
                     `
@@ -81,4 +109,14 @@ function setNumberInCol(sentences) {
     document.querySelector(".row-content").innerHTML = html;
 
 }
+
+function addClassWhenResize() {
+    if(document.body.clientWidth < 769){
+        document.querySelector(".content-container").classList.remove("container")
+        document.querySelector(".content-container").classList.add("container-fluid")
+    } else {
+        document.querySelector(".content-container").classList.add("container")
+    }
+}
+
 

@@ -5,11 +5,19 @@
     font-size: 14px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+ 
 a{
     text-decoration: none;
 }
 
+.btn:focus{
+    color: red;
+}
+.btn:hover{
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+    color: red !important;
+}
 .header__form-title{
     margin-right: 1rem;
 }
@@ -27,16 +35,49 @@ a{
 }
 .sentence__title{
     text-align: right;
-    position: relative;
 
 }
 .sentence__input{
     margin-left: 1.5rem;
+    position: relative;
 }
 
 .sentence__title::after{
     background-color: black;
 }
+
+
+
+
+/* Media queries */
+
+
+@media screen and (max-width: 992px) {
+    *{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 769px){
+    .content *{
+        font-size: 10px;
+        
+    }
+    .sentence__input{
+        margin-left: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 601px){
+    .content *{
+        font-size: 10px;
+        
+    }
+    .sentence__input{
+        margin-left: 0.05rem;
+    }
+}
+
 
 /* .sentence__input:focus body{
     background-color: black;

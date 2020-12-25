@@ -13,26 +13,33 @@
 
 </head>
 
-<body>
+<body onresize="addClassWhenResize()"> 
 
     <!-- header -->
     <header class="header mt-4">
         <div class="container">
             <div class="row ">
+                <!-- Number of sentences -->
                 <div class="col-12">
                     <form class="header__form d-flex justify-content-center">
                         <label class="header__form-title d-flex align-items-center">Số câu của bài nghe: </label>
                         <input type="text" class="header__form-input numberOfSentences" placeholder="Ex: max = 90">
-                        <button type="submit" class="header__form-btn btn">Send</button>
+                        <button type="submit" class="header__form-btn btn">Just Enter It</button>
                     </form>
+                </div>
+                <!-- Actions -->
+                <div class="col-12 d-flex justify-content-center mt-4">
+                    <button class="header__save btn mr-2">Save</button>
+                    <button class="btn header__clear">Clear All</button>
+                    <button class="btn header__restore">Restore the latest time</button>
                 </div>
             </div>
         </div>
     </header>
     <!-- main content -->
     <section class="content mt-5">
-        <div class="container">
-            <div class="row row-content">
+        <div class="container content-container ">
+            <div class="row row-content justify-content-center">
             </div>
         </div>
     </section>
